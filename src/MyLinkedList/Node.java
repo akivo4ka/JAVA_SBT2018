@@ -1,4 +1,4 @@
-package com.company;
+package MyLinkedList;
 
 public class Node<E> {
     public Node<E> prev;

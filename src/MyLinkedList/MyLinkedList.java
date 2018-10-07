@@ -1,4 +1,4 @@
-package com.company;
+package MyLinkedList;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
@@ -30,13 +30,24 @@ public class MyLinkedList<E> implements Iterable<E> {
     }
 
     public void add(int index, E e) {
-        Node<E> temp = _head;
-        if (index >= size) throw new java.lang.IndexOutOfBoundsException();
-        while (index > 0) {
-            temp = temp.next;
-            index--;
+        if (index >= size || index < 0) throw new java.lang.IndexOutOfBoundsException();
+        Node<E> temp = new Node<E>(e);
+        Node<E> curr = _head;
+        int i = index;
+        while (i > 0) {
+            curr = curr.next;
+            i--;
         }
-        temp.setValue(e);
+        temp.next = curr;
+        temp.prev = curr.prev;
+        if (curr.prev != null) {
+            curr.prev.next = temp;
+        }
+        curr.prev = temp;
+        if (index == 0) {
+            this._head = temp;
+        }
+        size++;
     }
 
     public E get(int index) {
@@ -97,6 +108,41 @@ public class MyLinkedList<E> implements Iterable<E> {
                 return temp != null;
             }
         };
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+        Iterator<E> it = this.iterator();
+        while (true) {
+            E e = it.next();
+            sb.append(e);
+            if (!it.hasNext()) {
+                sb.append("];");
+                return sb.toString();
+            }
+            sb.append(", ");
+        }
+    }
+
+    public boolean addAll(MyLinkedList<? extends E> list) {
+        if (list.size == 0) return false;
+        for (E e : list) {
+            this.add(e);
+        }
+        return true;
+    }
+
+    public boolean copy(MyLinkedList<? extends E> list) {
+        MyLinkedList<E> temp = new MyLinkedList<E>();
+        for (E e : list) {
+            temp.add(e);
+        }
+        this._head = temp._head;
+        this._tail = temp._tail;
+        size = temp.size;
+        return true;
     }
 }
 
