@@ -1,9 +1,9 @@
 package MyLinkedList;
 
 public class Node<E> {
-    public Node<E> prev;
-    public Node<E> next;
-    public E value;
+    Node<E> prev;
+    Node<E> next;
+    E value;
 
     public E getValue() {
         return value;
@@ -17,11 +17,11 @@ public class Node<E> {
         return prev;
     }
 
-    public void setNext(Node next) {
+    public void setNext(Node<E> next) {
         this.next = next;
     }
 
-    public void setPrev(Node prev) {
+    public void setPrev(Node<E> prev) {
         this.prev = prev;
     }
 
@@ -37,5 +37,7 @@ public class Node<E> {
 
     Node(E value) {
         this.value = value;
+        this.next = null;
+        this.prev = null;
     }
 }

@@ -15,17 +15,12 @@ public class MyLinkedList<E> implements Iterable<E> {
         if (_head == null) {
             _head = node;
             _tail = node;
-            _head.prev = null;
-            _tail.prev = null;
-            _head.next = null;
-            _tail.next = null;
         } else {
             node.next = null;
             node.prev = _tail;
             node.prev.next = node;
             _tail = node;
         }
-
         size++;
     }
 
