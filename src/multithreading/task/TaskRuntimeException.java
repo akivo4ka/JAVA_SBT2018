@@ -1,4 +1,4 @@
-package multithreading;
+package multithreading.task;
 
 public class TaskRuntimeException extends RuntimeException {
 

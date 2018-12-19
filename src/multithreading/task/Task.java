@@ -1,4 +1,4 @@
-package multithreading;
+package multithreading.task;
 
 import java.util.concurrent.Callable;
 
