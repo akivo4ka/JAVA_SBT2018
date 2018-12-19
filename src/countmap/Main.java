@@ -1,9 +1,9 @@
-package MyCountMap;
+package countmap;
 
 public class Main {
 
     public static void main(String[] args) {
-        MyCountMap<Integer> map = new MyCountMapImpl<Integer>();
+        MyCountMap<Integer> map = new MyCountMapImpl<>();
 
         map.add(10);
         map.add(10);
@@ -24,7 +24,7 @@ public class Main {
         count = map.getCount(10); // 3
         System.out.println("10:" + count);
 
-        MyCountMap<Integer> map2 = new MyCountMapImpl<Integer>();
+        MyCountMap<Integer> map2 = new MyCountMapImpl<>();
         map2.add(10);
         map2.add(5);
         map2.addAll(map);

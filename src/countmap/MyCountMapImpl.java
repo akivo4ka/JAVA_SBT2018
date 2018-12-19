@@ -1,4 +1,4 @@
-package MyCountMap;
+package countmap;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -7,8 +7,8 @@ public class MyCountMapImpl<E> implements MyCountMap<E> {
     private int size;
     private Map<E, Integer> map;
 
-    public MyCountMapImpl() {
-        map = new HashMap<E, Integer>();
+    MyCountMapImpl() {
+        map = new HashMap<>();
         size = 0;
     }
 
@@ -29,7 +29,7 @@ public class MyCountMapImpl<E> implements MyCountMap<E> {
     }
 
     public int remove(E o) {
-        Integer count = getCount(o);
+        int count = getCount(o);
         map.remove(o);
         size--;
         return count;

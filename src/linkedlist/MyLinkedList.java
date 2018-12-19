@@ -1,4 +1,4 @@
-package MyLinkedList;
+package linkedlist;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
@@ -7,9 +7,9 @@ public class MyLinkedList<E> implements Iterable<E> {
     private Node<E> _head;
     private Node<E> _tail;
 
-    public Integer size = 0;
+    Integer size = 0;
 
-    public void add(E e) {
+    void add(E e) {
         Node<E> node = new Node(e);
 
         if (_head == null) {
@@ -24,9 +24,9 @@ public class MyLinkedList<E> implements Iterable<E> {
         size++;
     }
 
-    public void add(int index, E e) {
+    void add(int index, E e) {
         if (index >= size || index < 0) throw new java.lang.IndexOutOfBoundsException();
-        Node<E> temp = new Node<E>(e);
+        Node<E> temp = new Node<>(e);
         Node<E> curr = _head;
         int i = index;
         while (i > 0) {
@@ -45,7 +45,7 @@ public class MyLinkedList<E> implements Iterable<E> {
         size++;
     }
 
-    public E get(int index) {
+    E get(int index) {
         Node<E> temp = _head;
         E value = null;
         if (index >= size || index < 0) throw new java.lang.IndexOutOfBoundsException();
@@ -57,7 +57,7 @@ public class MyLinkedList<E> implements Iterable<E> {
         return value;
     }
 
-    public E remove(int index) {
+    E remove(int index) {
         Node<E> temp = _head;
         if (_head == null) {
             return null;
@@ -121,7 +121,7 @@ public class MyLinkedList<E> implements Iterable<E> {
         }
     }
 
-    public boolean addAll(MyLinkedList<? extends E> list) {
+    boolean addAll(MyLinkedList<? extends E> list) {
         if (list.size == 0) return false;
         for (E e : list) {
             this.add(e);
@@ -129,7 +129,7 @@ public class MyLinkedList<E> implements Iterable<E> {
         return true;
     }
 
-    public boolean copy(MyLinkedList<? extends E> list) {
+    boolean copy(MyLinkedList<? extends E> list) {
         MyLinkedList<E> temp = new MyLinkedList<E>();
         for (E e : list) {
             temp.add(e);

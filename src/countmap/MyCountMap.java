@@ -1,4 +1,4 @@
-package MyCountMap;
+package countmap;
 
 import java.util.Map;
 

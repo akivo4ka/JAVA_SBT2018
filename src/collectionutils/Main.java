@@ -1,11 +1,11 @@
-package CollectionUtils;
+package collectionutils;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        List<Integer> c = new ArrayList<Integer>();
+        List<Integer> c = new ArrayList<>();
         CollectionUtils.add(c, 2);
         CollectionUtils.add(c, 1);
         CollectionUtils.add(c, 3);
@@ -13,7 +13,7 @@ public class Main {
         CollectionUtils.add(c, 5);
         System.out.println(c);
 
-        List<Integer> c2 = new ArrayList<Integer>();
+        List<Integer> c2 = new ArrayList<>();
         CollectionUtils.add(c2, 3);
         CollectionUtils.removeAll(c, c2);
         List<Integer> c1 = CollectionUtils.range(c, 2, 4);
